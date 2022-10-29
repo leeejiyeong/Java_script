@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="input" value="예담" id="id"> 
+    <input type="input" id="id2">
+    <br>
+    <button type="button" id="btn" onclick="getInfo()">정보추출</button>
+    <button type="button" id="btn2"onclick="getinfo2()">정보추출2</button>
+
+
+    <p style="border:1px  solid red"></p>
+
+    <script>
+        function getInfo(){ 
+            //첫번째 input 요소를 가져옴.
+            let inputId = document.getElementById('id');            
+            let str = inputId.value;
+            
+            //p요소를 가져옴
+            let p =document.querySelector('p');
+
+            //첫번째 input요소의 데이터를 p요소에 저장(화면에 나오게)
+            p.textContent = str;
+
+            //console.log("정보추출버튼 눌러짐");
+        }
+
+        function getinfo2(){
+            let inputid2 = document.getElementById('id2');
+            let str2 = inputid2.value;
+
+            let p = document.querySelector('p');
+
+            p.textContent = str2;
+        }
+
+    </script>
+</body>
+</html>

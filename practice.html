@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <style>
+        .red{
+            background-color: brown;
+            color:white;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--이하 자바스크립트로 작성-->
+    <div id="app">
+        <!-- 
+        <span class="red" id="sp1">span입니다.</span>
+        <h2>h2 텍스트입니다.</h2>
+        <img src="원하는이미지" alt="이미지를 불러올 수 없습니다." style="height:100px">
+        <ul id="ulapp">
+            <li class="liclass">텍스트1</li>
+            <li class="liclass">텍스트2</li>
+            <li class="liclass">텍스트3</li>
+        </ul> 
+        -->
+    </div>
+
+    <script>
+        //<span>제작
+        let span = document.createElement('span');
+
+        //span에 class 넣기
+        span.setAttribute('class','red');
+
+        //span에id 넣기
+        span.setAttribute('id','sp1');
+
+        //span에 텍스트 넣기
+        span.textContent = 'span입니다.';
+
+        //만들어진거 콘솔에서 확인
+        console.log(span);
+
+
+        //h2만들기
+        let h2 = document.createElement('h2');
+
+        //h2에 텍스트넣기
+        h2.textContent = "h2 텍스트입니다";
+
+        //이미지 태그 만들기
+        let img = document.createElement('img');
+
+        //이미지에 속성(링크, alt, 스타일) 넣기
+        img.setAttribute('src','image.jpg');
+        img.setAttribute('alt', '이미지를 불러올 수 없습니다');
+        img.setAttribute('style','height:100px');
+
+        //ul,li 요소 만들기
+        //ul 만들기
+        let ul = document.createElement('ul');
+
+        //반복문을 활용해서 li 만들기
+        for(let i=1; i<=3; i++){
+            //li 요소 만들기
+            let li = document.createElement('li');
+            //li에 텍스트넣기
+            li.classList.add('liclass');
+            li.textContent = "텍스트"+i;
+            ul.appendChild(li);
+        }
+
+        //div태그 id를 이용해서 문서에 나타내기
+        //span, h2, img, ul~li
+
+        // //하나의 자식만 추가할 때 사용하는 함수
+        let div = document.getElementById('app');
+        div.appendChild(span);
+        div.appendChild(h2);
+        div.appendChild(img);
+        div.appendChild(ul);
+
+        // //여러 자식들을 한꺼번에 추가할때 사용하는 함수
+        // div.append(span,h2,img,ul);
+
+        //id를 이용하여 span태그 삭제하기
+        let removeSpan = document.getElementById('sp1');
+        removeSpan.remove();
+        
+    </script>
+</body>
+</html>

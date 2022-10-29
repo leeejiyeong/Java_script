@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>삭제버튼</title>
+    <style>
+        p{
+            border: 1px solid blue;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button type="button" onclick="saveBtn()">저장</button>
+    <div id="savebox">
+
+    </div>
+
+    <script>
+        function saveBtn(){
+            let input = document.querySelector('input');
+            let p = document.createElement('p');
+
+            let btn = document.createElement('button');
+            btn.textContent="삭제"
+            btn.setAttribute('type','button');
+            btn.addEventListener('click',removebtn);
+
+            p.textContent=input.value;
+            p.appendChild(btn);
+
+            let div = document.getElementById('savebox');
+            div.appendChild(p);
+        }
+
+        function removebtn(){
+            event.target.parentNode.remove()
+        }
+
+    </script>
+</body>
+</html>

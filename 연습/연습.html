@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습</title>
+</head>
+<body>
+    <script>
+
+        // for(let i =1; i<10; i=i+2){
+        //     console.log(i);
+        // }
+
+        // let sum = 0;
+
+        // for(let i = 1; i<=10; i++){
+        //     sum += i;; //sum = sum +i;
+        //     console.log("합계"+ sum);
+        //     console.log("반복되는변수"+i);
+        // }
+
+        // let sum = 0;
+        
+        // for(let i =1; i<=100; i++){
+        //     sum = sum +i; //sum +=i
+        //     console.log(i);
+        // }
+        // console.log("1~100의 합 : " +sum);
+
+        // for(let i = 1; i<=10; i++){
+        //     if(i % 2 == 0){
+        //         console.log(i);
+        //     }
+        // }
+
+        // for(let i =1; i<=100; i++){
+        //     if(i % 2 ==1){
+        //         console.log(i);
+        //     }
+        // }
+
+        // let fac = 1;
+
+        // let count =Number(prompt("숫자를 입력하삼"));
+
+        // for(let i =1; i<=count; i++){
+        //     fac *= i;
+        // }
+        // console.log(count+"!의 값은 : "+fac+"입니다.");
+
+        // for(let i =1; i <=9; i++){
+        //     console.log("2*" +i +"=" + (2*i));
+        // }
+
+        // let sum = 0;
+
+        // for(let i =1; i <=100; i++){
+        //     if(i % 2 ==1){
+        //         sum +=i;
+        //     }
+        // } 
+        // console.log(sum);
+
+        // let sum =0;
+
+        // let input = Number(prompt("숫자입력ㄱㄱ"));
+
+        // for(let i =1; i<=input ;i++){
+        //     sum += i;
+        // }
+        // console.log(sum);
+
+        // for(let i =2; i <=9 ; i++){
+        //     for(let j=1; j<=9; j++){
+        //         console.log(i + "*" +j+"="+(i*j));
+        //     }
+        // }
+
+        // for(let i =1; i<=5;i++){
+        //     for(let j=1; j<=5; j++){
+        //         if(i+j==6){
+        //             console.log("두개 주사위 합이 6인 경우는 : "+ i +","+j);
+        //         }
+        //     }
+        // }
+
+        let star = "";
+
+        // for(let i =1; i<=5; i++){
+        //     for(let j=1; j<=i; j++){
+        //         star+="*"; //star = star + "*"
+        //     }
+        //     star+="\n"; //star = star + "\n"
+        // }
+        // console.log(star);
+
+        // for(let i =5; i>=1; i--){
+        //     for(let j=i; j>=1; j--){
+        //         star+="*";
+        //     }
+        //     star+="\n";
+        // }
+        // console.log(star);
+
+        // for(let i=1; i>=5; i++){
+        //     for(let j=5; j>=i; j--){
+        //         star +="*";
+        //     }
+        //     star+="\n";
+        // }
+        // console.log(star);
+
+        // for(let i =1; i<=5; i++){
+        //     for(let j=1; j<i; j++){
+        //         star+= " ";
+        //     }
+        //     for(let j=1; j<=6-i; j++){
+        //         star +="*";
+        //     }
+        //     star +="\n";
+        // }
+        // console.log(star);
+
+        // let sum = 0;
+
+        // while(true){
+        //     sum += 1;
+        //     if(sum>=10){
+        //         break;
+        //     }
+        // }
+        // console.log(sum);
+
+        // while(sum<10){
+        //     sum +=1;
+        // }
+        // console.log(sum);
+
+        // let flag = true;
+        // let sum = 0;
+
+        // while(flag){
+        //     sum +=1;
+        //     if(sum=10){
+        //         flag =false;
+        //     }
+        // }
+
+        // while(true){
+        //     sum +=1;
+        //     if(sum == 10){
+        //         break;
+        //     }
+        // }
+
+        // let even = 0;
+
+        // while(even<=100){
+        //         if(even % 2==0 && even != 0){
+        //             console.log("1~100사이의 짝수 : " +even);
+        //         }
+        //     even++
+        // }
+
+        // let gugu = 2;
+        // let num = 1;
+
+        // while(num<=9){
+        //     console.log(gugu + "*" +num + "=" + gugu*num);
+        //     num++
+        // }
+        
+        // let array =[1,2,3]
+        // array.push("string");
+        // console.log(array);
+        // array.unshift(3);
+        // array.shift();
+        // array.push('마지막');
+        // array.push("라이언");
+        // array.shift();
+        // array.pop();
+        // array.splice(1,1,'세입자');
+        // console.log(array);
+
+        let ary = [269,45,655,2,25,4,5,55,1,154,896,2,-1]
+
+        // let max = ary[0];
+        // let min = ary[0];
+
+        // for(let i =0; i<ary.length; i++){
+        //     if(max <ary[i]){
+        //         max = ary[i];
+        //     }
+        //     if(min >ary[i]){
+        //         min = ary[i];
+        //     }
+        // }
+        // console.log("최대값"+max);
+        // console.log("최소값"+min);
+
+        // console.log(ary.length);
+        // for(let index in ary){
+        //     // console.log(index);
+        //     console.log(ary[index]);
+        // }
+
+        // let str = "hello world";
+
+        // str.substring(2,7);
+        // console.log(str.substring(2,7));
+
+        // str.indexOf('l');
+        // console.log(str.indexOf('l'));
+
+        // str.lastIndexOf('l');
+        // console.log(str.lastIndexOf('l'));
+
+        // console.log(str.length);
+
+        // console.log(str.toUpperCase());
+
+        // let str2 = "HELLO WORLD";
+
+        // console.log(str.toLowerCase());
+
+        // for(let i =0; i<str.length; i++){
+        //     if(str.substring(i,i+1)=="l"){
+        //         console.log("l위치:"+(i+1));
+        //     }
+        // }
+
+        // let num = Number(prompt("숫자입력"));
+
+        // for(let i=1; i<=num; i++){
+        //     let temp=string(i);
+        //     let str;
+
+        //     if(temp.lastIndexof('3')!=-1 || temp.lastIndexof('6')!=-1 || temp.lastIndexof('9'))!=-1{
+        //         temp = (temp.substring(0, temp.length-1));
+        //         temp += "*";
+        //     }
+        // }
+        // console.log(temp);
+
+        
+
+    </script>
+</body>
+</html>

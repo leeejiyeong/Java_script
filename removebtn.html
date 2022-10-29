@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removebtn</title>
+</head>
+<body>
+    <!-- input태그 1개, button 1개를 활용해서 데이터 저장 -->
+    <!-- 저장할 때 삭제 버튼을 추가해서 지우는거 만들기 -->
+
+    <input type="text">
+    <button type="button" onclick="saveBtn()">저장</button>
+    <div id="savebox">
+
+    </div>
+
+    <script>
+        function saveBtn(){
+            let inputVal = document.querySelector('input');
+            let str = inputVal.value;
+            let p = document.createElement('p');
+            p.textContent = str;
+
+            let btn = document.createElement('button');
+
+            //onclick, type, value ->태그에서 사용하는 옵션(속성)을 다 넣어주기
+            //<button type="button" onclick = 'removeBtn()'>삭제</button>
+            btn.setAttribute('onclick','removeBtn()');    
+            btn.setAttribute('type','button');
+            btn.textContent = "삭제"        
+
+            //<p>내용 <버튼></p>- 만든 내용과 버튼을 p태그에 넣어주기
+            p.appendChild(btn);
+
+            let div = document.getElementById('savebox');
+            //만든p태그를 div에 넣어주기
+            div.appendChild(p);
+        }
+        function removeBtn(){
+            //<button type="button" onclick = 'removeBtn()'>삭제</button>
+            console.log(event.target.parentNode.remove());
+        }
+
+    </script>
+
+</body>
+</html>

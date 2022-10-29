@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do list</title>
+</head>
+<style>
+    *{
+        font-family: '맑은 고딕','고딕','궁서';
+    }
+    #list{
+        border: 1px dotted navy;
+        text-align: left;
+        font-size: 20px;
+        background-color: blueviolet;
+        color: aliceblue;
+        width:500px
+    }
+    #history{
+        margin-top: 30px;
+        border: 1px dotted white;
+        text-align: left;
+        font-size: 20px;
+        background-color: gray;
+        color: white;
+        width: 500px;
+    }
+    button{
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    p{
+        font-size: 15px;
+    }
+</style>
+<body>
+    <h1>To Do List</h1>
+    <input type="text" id="doList" style="width: 300px;">
+    <button type="button" onclick="saveList()">저장</button>
+
+    <!-- 체크된 항목을 삭제하는 버튼 -->
+    <button type="button" onclick="deleteElements()">삭제</button>  
+    <br>
+    <br>
+    <br>
+    <h2>List</h2>
+        <div id="list">
+            
+        </div>
+    <h2>History</h2>    
+        <div id="history">
+            
+        </div>
+    <script>
+
+        function saveList(){
+            let list = document.getElementById('doList');
+
+            let p = document.createElement('p');
+            p.textContent = list.value;     //input에 적은걸 p에 전달
+            
+            //input -> text,password,email,checkbox,radio 등 여러가지 가능
+            let ckb = document.createElement('input');
+            ckb.setAttribute('type','checkbox');
+            p.prepend(ckb);     //그냥 순서를 앞에 적으면 될거를 왜 prepend를 이용? -> p
+            
+            let btn = document.createElement('button');
+            btn.textContent = "완료"
+            btn.setAttribute('type','button');
+            btn.setAttribute('onclick','move()');
+
+            p.appendChild(btn);     //만든버튼 p에다가 나오게
+
+            let div = document.getElementById('list');
+            div.appendChild(p);     //p가 div에 나오게
+
+            doList.value ="";
+        }
+
+        function move(){    //버튼을 눌렀을때 div2(history)로 이동하게
+            let history = document.getElementById('history');
+
+            checkedtoggle()
+
+            //event.target=>내자신(버튼)한테 이벤트 설정
+            event.target.setAttribute('onclick','before()');
+
+            //실행될때 버튼이름 바뀌게하기
+            event.target.textContent = "history"
+
+            //버튼(=event.target)의 부모(p태그)까지 같이 div2(history)로 옮겨져야 되기 때문에
+            //event.target.parentNode라고 적는것임
+            history.appendChild(event.target.parentNode);
+
+        }
+        function before(){
+            let history = document.getElementById('list');
+
+            checkedtoggle()
+
+            event.target.setAttribute('onclick','move()');
+            event.target.textContent = "완료"
+            list.appendChild(event.target.parentNode);
+        }
+
+        function deleteElements(){
+            let ckb = document.querySelectorAll('input[type=checkbox]:checked');        //input에 check된 애들만 가져와=>이때 p를 가져오는게아니라 딱 체크박스만 가져옴
+            console.log(ckb);
+            for(let i of ckb){      //그래서 ckb의 부모인 p태그 전체를 지워야 하는것
+                i.parentNode.remove();
+            }
+        }
+        
+        function checkedtoggle(){
+            let ckb = document.querySelectorAll('input[type=checkbox]:checked');
+            for(let i of ckb){
+                i.checked = false;  //체크박스 해제하는거
+            } 
+        }
+    </script>
+</body>
+</html>

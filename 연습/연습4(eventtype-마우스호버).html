@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연습4 eventtype</title>
+</head>
+<body>
+    <!-- Eventtype -->
+    <input id="txtName">
+    <button type="button">버튼</button>
+
+    <script>
+        let btn = document.querySelector('button');    
+        btn.addEventListener('click', aaa);     
+        btn.addEventListener('click', bbb);
+
+        function aaa(){
+            alert("버턴을 클릭했읍니다.");
+        }
+
+        function bbb(){
+            console.log("버턴 클릭");
+        }
+
+        let drr = document.getElementById('txtName');
+        drr.addEventListener('mouseover', ccc);
+        drr.addEventListener('mouseout',ddd);
+
+        function ccc(){
+            drr.style.background = "yellow";
+        }
+        function ddd(){
+            drr.style.background = "white";
+        }
+
+         drr.addEventListener('change',eee);
+
+         function eee(){
+            console.log("변경됨");
+         }
+    </script>
+</body>
+</html>

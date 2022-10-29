@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventinline</title>
+</head>
+<body>
+
+    <!-- 폼태그에서만 사용가능한 이벤트 -->
+    <!-- submit발생시 action에 있는 페이지로 이동 -->
+    <form id="form" action="practice.html" onsubmit="alert('submit')">
+        <label>이름 <input type="text" name="userid" id="userid"></label><br>
+        <button>submit</button>
+    </form>
+
+    <form id="form" action="practice.html" onsubmit="return fnSubmit()">
+        <label>이름 <input type="text" name="userid" id="userid"></label><br>
+        <button>submit</button>
+    </form>
+
+    <script>
+        function fnSubmit(){
+            alert('submit');
+            let txt = document.getElementById('userid');
+            //↓input 태그에 데이터가 있는지 존재 유무 확인
+            if(txt.value == ''){
+                console.log('no data');
+                //데이터가 존재하지 않기 때문에 submit을 작동시키지 않음.(입력 안하면 결과 안나옴)
+                return false;
+            }
+                //데이터가 존재하므로 submit을 작동함.(입력해야 작동함)
+                return true;
+        }
+    </script>
+
+    <!-- button 태그에 바로 onclick 이벤트 걸기-->
+    <!-- <button type="button" id="btn" onclick="alert('button')">button</button> -->
+
+    <!-- click했을때 a tag라고 나오고 naver누르면 네이버 나옴 -->
+    <!-- <a href = "http://www.naver.com" id="abtn" onclick="alert('a tag')">naver</a> -->
+
+    <!-- 네이버 눌렀을때 수식이용해서 나눠서 나오기 -->
+    <!-- <a href = "http://www.naver.com" id="abtn" onclick="fnA()">naver</a>
+
+    <script>
+        function fnA(){
+            if(!confirm('이동?')){ //이동에서 확인->의 반대는 ->취소니까
+                event.preventDefault(); //취소누르면 ->이벤트 중단
+            }
+        }
+    </script> -->
+
+    <!-- 바로 안넣고 function만들어서 넣기 -->
+    <button type="button" id="btn" onclick="btnFnc()">button</button>
+
+    <script>
+        function btnFnc(){
+            console.log("버튼클릭");
+        }
+    </script>
+
+    <!-- button눌렀을때 폼 태그 submit이벤트 걸어주기(함수이용)-->
+    <!-- <button type="button" id="btn" onclick="fnButton()">button</button>    
+    
+    <script>
+        function fnButton(){
+            let form = document.getElementById('form');
+            form.submit();
+        }
+    </script> -->
+    
+    <!--action(뭐했을때 뭐해라)안주고 이벤트 걸어주기-->
+    <button type="button" id="btn">button</button>
+
+    <script>
+        let btn = document.getElementById('btn');
+        btn.onclick = function(){  //익명함수
+            form.submit();
+        }
+    </script>
+
+    <!--s네이버-->
+    <!-- <a href = "http://www.naver.com" id="abtn">naver</a>
+
+    <script>
+        let btn = document.getElementById('btn');
+        let aTag = document.getElementById('abtn');
+
+        function fnA(){
+            if(!confirm('이동?')){ //이동에서 확인->의 반대는 ->취소니까
+                event.preventDefault(); //취소누르면 ->이벤트 중단
+            }
+        }
+    </script> -->
+
+    <form id="form" action="practice.html">
+        <label>이름 <input type="text" name="userid" id="userid"></label><br>
+        <button>submit</button>
+    </form>
+
+    <script>
+        let form = document.getElementsById('form');
+        form.onsubmit = function(){
+            let txt = document.getElementById('userid');
+            if(txt.value == ""){
+                return false;
+            }
+                return true;
+        }
+    </script>
+
+</body>
+</html>

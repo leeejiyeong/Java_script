@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventType</title>
+</head>
+<body>
+    <!-- Event -->
+    <input id="txtName">
+    <button type="button">버튼</button>
+    <script>
+
+        //버튼에 이벤트 넣기!
+            //button 요소를 가져옴
+            let btn = document.querySelector('button');
+    
+            //button에 click했을때 fncbtn을 실행하는 event 추가하기 ->근데 fncbtn이 정의되어있지않다
+            btn.addEventListener('click', Fncbtn);
+            btn.addEventListener('click', Fncbtn2);
+
+            //button에 넣을 기능(함수) 만들기(fncbtn 어떻게 작동될지 정의해주기)- 여러개 넣기 가능
+            function Fncbtn(){
+                alert("버튼을 클릭했습니다.");      //누르면 팝업창뜸
+            }
+
+            function Fncbtn2(){
+                console.log("버튼 클릭");       //누르면 console에 기록 뜸
+            }
+
+        //input태그에 hover기능 넣기 (마우스 왔다갔다하면 변하는거)
+            let txtName = document.getElementById("txtName");   //input의 아이디 가져오기
+
+            txtName.addEventListener('mouseover', FncTxt); //마우스 올릴때 fnctxt기능 작동하게 하기
+            txtName.addEventListener('mouseout', FncTxt2); //마우스 땔때
+
+            //input태그 style변경
+            function FncTxt(){
+                txtName.style.background = "yellow"; //== txtName.setAttribute(); //마우스 올리면 노란색
+            }
+            function FncTxt2(){
+                txtName.style.background = "white"; //== txtName.setAttribute(); //때면 흰색
+            }
+
+        //input태그에 내용이 변경되면 콘솔에 표시하기
+            txtName.addEventListener('change', fncChange);  //변화가 생기면 fncChange기능이 작동하게하기
+            function fncChange(){
+                console.log("변경됨");      //input창에 변화가 생기면(입력하면) console에 '변경됨' 출력
+            }
+    </script>
+</body>
+</html>

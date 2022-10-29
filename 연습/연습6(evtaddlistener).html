@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연습6 eventaddlistener</title>
+</head>
+<body>
+    <!--input태그에 데이터 존재 유무 확인하고 action 페이지로 넘어가는 이벤트-->
+    <form id="form" action="practice.html" onsubmit="return fnSubmit()">
+        <label>이름 <input type="text" name="userid" id="userid"></label><br>
+        <button>submit</button>
+    
+    <button type="button" id="btn">button</button>
+
+    <script>
+        let btt =document.getElementById('btn');
+        btt.addEventListener('click',bbbb);
+
+        function bbbb(){
+            let txt = document.getElementById('userid');
+            if(txt.value ==""){
+
+            // }
+            // if(!conform()){
+                event.preventDefault();
+            }
+        }
+
+    </script>
+</body>
+</html>

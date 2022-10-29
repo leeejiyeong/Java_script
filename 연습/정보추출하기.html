@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>정보추출하기</title>
+</head>
+<body>
+    <input type="input" value="예담" id="id">
+    <input type="input" id="id2">
+    <br>
+    <button type="button" id="btn">정보추출</button>
+    <button type="button" id="btn2">정보추출2</button>
+
+    <p></p>
+
+    <script>
+        let input = document.getElementById('id');
+        let input2 = document.getElementById('id2');
+        let p = document.querySelector('p');
+
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click',getinfo);
+
+        function getinfo(){
+            p.textContent = input.value;
+        }
+
+        let btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click',getinfo2);
+
+        function getinfo2(){
+            p.textContent = input2.value;
+        }
+        </script>
+</body>
+</html>

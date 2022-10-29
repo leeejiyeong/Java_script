@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>단위변환</title>
+</head>
+<body>
+    <input type="text">inch
+    <br>
+    <br>
+    <button type="button" id="cal">계산</button>
+    <button type="button" id="total">이력</button>
+    
+    <p>
+
+    </p>
+
+    <script>
+        //inch -> cm로 변환하는 계산기
+        //계산 버튼을 누르게 되면 inch->cm로 변환
+        //이력 버튼을 누르게 되면 변환 했던 이력들을 출력
+        //inch -> cm로 변환하는 공식 : inch * 2.54
+        //데이터가 입력되지 않으면 알림창 발생 할 것.
+        //예시 ) input 에 10을 입력하고 계산 버튼을 누르면 p 태그에 결과 값이 출력되면 됨.
+        //예시 ) 이력 버튼을 누르면 변환 했던 내용들이 p 태그에 결과 값이 출력되면 됨.
+        //참고 ) 결과 사진 첨부
+
+        let arr = [];
+        let input = document.querySelector('input');
+        let p = document.querySelector('p');
+
+        let btn = document.getElementById('cal');
+        btn.setAttribute('onclick','calcu()');
+
+        let btn2 = document.getElementById('total');
+        btn2.setAttribute('onclick','hist()');
+
+        function calcu(){
+            let inch = Number(input.value);
+
+            if(inch == ""){
+                alert("숫자를 입력하세요");
+            }else{
+                let cm = inch *2.54
+                p.textContent = cm +"cm";
+                arr.push(p.textContent);
+                }
+            }
+        
+         function hist(){
+            let str = "이력 출력 : ";
+
+            for(let i of arr){
+                str +=i;
+                str += ", ";
+            }
+            p.textContent = str;
+         }
+        
+    </script>
+</body>
+</html>

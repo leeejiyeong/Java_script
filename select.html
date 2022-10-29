@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select</title>
+</head>
+<body>
+    <select onclick="check()">
+        <option>자바</option>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>Java Script</option>
+        <option>Python</option>
+        <option>OracleDataBase</option>
+    </select>
+
+    <script>
+        function check(){
+            //그냥 event.target은 클릭하는대상. 여기선 저거쓰면 option이 됨.
+            //event.currentTarget = select
+            //click하는건 -> option
+            let options = event.currentTarget.options;      //== select(event.currenttarget)의 option들(options)
+            let index = event.currentTarget.options.selectedIndex;      //==골라진 인덱스번호(옵션 뭐선택했는지)
+            
+            let p = document.querySelector('p');
+            p.textContent = "선택 : " + options[index].textContent;
+        }
+    </script>
+
+    <p></p>
+</body>
+</html>

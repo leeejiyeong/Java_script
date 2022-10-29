@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element2</title>
+</head>
+<style>
+    .red {
+        background-color: coral;
+    }
+</style>
+<body>
+    <h1>타이틀</h1>
+    <ul id="my-list">
+        <li class="list">리스트1</li>
+        <li class="list">리스트2</li>
+        <li class="list">리스트3</li>
+    </ul>
+    <div id="app">
+        <span id="child"></span>
+    </div>
+    <a href="#" target ="_blank"></a>
+    <script>
+        let myBox =document.querySelector('ul');
+
+        //요소안에 html 내용을 넣는방법
+        // myBox.innerHTML = "안녕하세요";
+
+        let list = document.getElementById('my-list'); 
+        //↑ 위에있는 태그id를 불러와서 list로 지칭하겠다
+        let lists = document.querySelector('#my-list .list:nth-child(1)');
+        //↑ id가 my-list인 ul의 list(li)들 중에서 1번째껄 lists로 지칭하겠다
+        console.log(lists);
+
+        // document.querySelectorAll('ul > li')
+        let taglist = document.getElementsByTagName('li');
+        //↑ 태그가 li인 애들을 taglist라고 지칭하겠다
+        console.log(taglist[0]);
+
+        //DOM 생성(자바스크립트로 돔(새로운태그)을 만들수있따)
+        let makeP = document.createElement('p'); //<p></p>랑 같음 = p태그를 만들고 makeP라고 하겠다
+        console.log(makeP);
+        //style, class, id, 내용(text) 모두 만들수이따
+
+        //id가app인div에 넣기
+        let div = document.getElementById('app'); //id가 app인 div를 div로 지칭하겠다
+
+        makeP.textContent = "P element입니다."; //아까만든make.p에다가 텍스트를 넣겠다 ""안에있는것
+
+
+        div.appendChild(makeP); //div태그 안에다가 만들어놓은makeP를 자식으로 만들어넣겠다(진짜 파일로 나오게)
+        console.log(div);
+
+        //<p>만든거 삭제하기
+        // div.removeChild(makeP);
+        // console.log(div);
+
+        //원래 있던 <span>지우기
+        div.removeChild(document.getElementById('child'));
+        console.log(div);
+        
+        //텍스트 
+        let pTag = document.querySelector('#app p');
+        console.log(pTag);
+
+        let pText = pTag.textContent;
+        console.log(pText);
+
+        //<img src = "image.jpg" alt = "사진을 불러올 수 없습니다." style="width:50px">
+        let imgTag = document.createElement('img');
+
+        imgTag.setAttribute('src','image.jpg');
+        imgTag.setAttribute('alt', '사진을 불러올 수 없습니다');
+        imgTag.setAttribute('style','width:50px');
+
+        console.log(imgTag);
+
+        //
+        let aTag = document.createElement('a');
+
+        aTag.setAttribute('href','http://naver.com');
+        // aTag.textContent = "네이버";
+        aTag.setAttribute('style','color:red');
+
+        aTag.appendChild(imgTag);
+
+        div.appendChild(aTag);
+
+        //속성값 꺼내보기
+        let confirms = aTag.getAttribute('href');
+        console.log(confirms);
+
+        let spanTag = document.createElement('span');
+        
+        // <span style="color:blue">
+        spanTag.setAttribute('style', 'color:blue');
+        spanTag.textContent = "spanTag입니다";
+        div.appendChild(spanTag);
+
+        // //class추가, 삭제
+        // //className과 비슷
+        // div.classList.add('red');
+        // div.classList.remove('red');
+
+
+        
+    </script>
+</body>
+</html>

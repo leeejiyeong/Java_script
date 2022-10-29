@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="txtWord">
+    <button type="button" id="btnAdd" onclick="pAdd()">추가</button>
+
+    <p class="word">list</p>
+    <p class="word">nice</p>
+    <p class="word">good</p>
+    <p class="word">very</p>
+
+    <script>
+        //let btn = document.querySelector('#btnAdd');
+        //버튼 클릭시, p tag가 생성, 추가 되도록 하기
+        //input태그에 있는 데이터를 추가하여서 생성하기
+        function pAdd(){
+            console.log(this); //함수에서의 this는 window호출(개많은 함수)
+            let p = document.createElement('p');    //문서에 p태그 만들기
+            p.classList.add('word');    //새로만든 p태그에 word클래서 추가
+            let txt = document.getElementById('txtWord');   //
+            p.innerHTML = txt.value;
+            document.body.append(p); //문서에 p태그 추가하기
+        }
+
+        //그룹이벤트
+        document.body.addEventListener('click',function(){
+            // if(event.target.className =='word'){
+            //     console.log(event.target.innerHTML);
+            // }
+            
+            // //this : 이벤트를 걸어놓은 대상(여기서는 body). 위치에 따라 성질이 달라짐
+            // //event.target : click한 태그 (여기서는 button)
+            // //currentTarget : 이벤트를 걸어놓은 대상(여기선 this랑 같은 의미)
+            // console.log("this", this); 
+            // console.log("target", event.target);
+            // console.log("currentTarget", event.currentTarget);
+
+        })
+        
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. 산술 연산자 : + , - , / , * , % , ++ , -- , +=, -=, /=...
+        let sum = 10 + 10; // result : 20
+        let sub = 20 - 10; // result : 10
+
+        let div = 50 / 5; // result : 10 (몫)
+        let num = 50 % 5; // result : 0 (나머지)
+
+        let sup = 20 * 30; // result : 600
+
+        //++
+        let num7 = 1;
+        
+        console.log(num7++); //result : 1, 문장을 실행 완료하고 나서 num7 = num7 + 1;
+        console.log(++num7); //result : 3, 문장을 실행하기 전에 num7 = num7 + 1;
+
+        //--
+        console.log(num7--); //result : 3, 문장을 실행 완료하고 나서 num7 = num7 - 1;
+        console.log(--num7); //result : 1, 문장을 실행하기 전에 num7 = num7 - 1;
+
+        //+=, -=, /=...
+        //+=
+
+        num7 = num7 + 7;
+        num7 += 7;
+
+        num7 = num7 - 5;
+        num7 -= 5;
+
+        num7 = num7 / 5;
+        num7 /= 5;
+
+
+        //2. 비교 연산자 : ==(같다), !=(다르다), ===(데이터 타입이랑 값 비교), >, <, >=, <=
+        // = : 일반적으로는 같다는 의미지만 프로그래밍 언어에서는 대입한다는 뜻
+        //     대입연산자 : 우변의 데이터를 좌변의 변수에 넣어주는 역할
+        let firstNum = 1;
+        let secondNum = 2;
+
+        console.log(firstNum == secondNum);  //result : false
+        console.log(firstNum != secondNum); //result : true
+        console.log(firstNum === secondNum); //result : false
+
+        console.log(1 === 1); //result : true
+        console.log("yedam" == "yedam"); //result : true (문자도 됨)
+        console.log(Number("12") === Number("12"));
+
+        console.log(firstNum > secondNum); //result : false
+        console.log(firstNum < secondNum); //result : true
+        console.log(firstNum >= secondNum); //result : false
+        console.log(firstNum <= secondNum); //result : true
+
+        //3. 논리 연산자 :  &&, ||, 삼항 연산자
+        // && : AND (true=1, false=0이라 가정했을때 *하면 나오는 결과값 ex. true && false => false)
+        // || : OR (+하면 나오는 결과값 ex.true || false => true)
+        
+        console.log( true && true); //(명제의 결과를 가지고 비교함)
+        console.log(firstNum < secondNum && firstNum >= secondNum); //result : false
+        console.log(firstNum < secondNum || firstNum >= secondNum); //result : true
+        
+        //4. 문자열 연산자 : +(산술+랑 다름. 단순히 단어를 붙여주는 역할), +=
+
+        console.log("yedam" + "javascript"); //result : yedamjavascript
+
+        let str8 = "yedam";
+        //str8 = str8 + " 5F";
+        str8 += " 5F";
+
+        console.log(str8);
+
+        //5. 부정 연산자 : ! (-> not이랑 비슷함)
+
+        console.log(!true); //result : false(true를 부정함)
+        console.log(!false); //result : true(false를 부정함)
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연습2 element</title>
+</head>
+<style>
+    .red{
+        background-color: coral;
+    }
+</style>
+<body>
+    <h1>타이틀</h1>
+    <ul id="my-list">
+        <li class="list">리스트1</li>
+        <li class="list">리스트2</li>
+        <li class="list">리스트3</li>
+    </ul>
+    <div id="app">
+        <span id="child">스판</span>
+    </div>
+    <a href="#" target="_blank"></a>
+
+    <script>
+        // //요소안에 html 내용 넣기(ul 대신 '안녕하세요' 나옴)
+        // let box = document.querySelector('ul');
+        // box.innerHTML = "안녕하세요";
+
+        //
+        let list = document.getElementById('my-list');
+        let lists = document.querySelector('#my-list .list:nth-child(1)');
+        console.log(list)       //=> ul
+        console.log(lists);     //=> ul중에 .list인 첫번째 li => 리스트1
+
+        //자식선택자(>) 사용
+        document.querySelectorAll('ul > li') 
+
+        //
+        let taglist = document.getElementsByTagName("li");
+        console.log(taglist[0]); //=>리스트1
+
+        //DOM생성하기(자바스크립트로 새로운태그(?)만들기) - style, class, id, 내용(text) 모두 만들 수 있다.
+        let makeP = document.createElement('p');    //<p>태그를 새로만듬
+        console.log(makeP);
+
+        //추가한 p태그에 내용넣고 화면에 나오게하기
+        let div = document.getElementById('app');   //id가 app인 애를 div로 지정하고
+        makeP.textContent = "P태그 element입니다";      //p태그에 텍스트 추가
+        div.appendChild(makeP);     //만든 p태그를 자식으로 추가해서 화면에 나오게함
+        console.log(div);
+
+        // //<p>만든거 삭제하기
+        // div.removeChild(makeP);
+        // console.log(div);
+
+        // //html에서 만들어놨던 <span>태그 삭제하기
+        // div.removeChild(document.getElementById('child'));  //id가 child인거를 자식에서 삭제
+        // console.log(div);
+
+//모루겠다        //☆ptag는 콘솔로 출력하면 어차피 p태그 내용이 나오는데 위에서 만든 makeP와 차이가 뭔가유?
+        let ptag = document.querySelector('#app p');
+        console.log(ptag);      //p태그+텍스트 내용 나옴 (=> <p>element입니다</p>)
+
+        let ptext = ptag.textContent;
+        console.log(ptext);     //p태그에 들어있는 텍스트 그자체를 console에 출력 (=> element입니다)
+    
+        //사진넣기 <img src = "image.jpg" alt = "사진을 불러올 수 없습니다." style="width:50px">
+        let imgg = document.createElement('img');   //이미지 태그 만들기
+        imgg.setAttribute('src','image.jpg');       //이미지 경로 설정
+        imgg.setAttribute('alt','사진을 불러올 수 없습니다.');      //이미지가 안나올때 나올 메시지
+        imgg.setAttribute('style','width:50px');    //이미지 스타일 설정
+        console.log(imgg);
+        div.appendChild(imgg);      //이미지가 문서에 나오게 자식으로 추가
+
+        //a태그와 링크 넣기
+        let aaa = document.createElement('a');      //a태그 만들기
+        aaa.setAttribute('href','http://naver.com');        //태그에 링크 경로설정
+        aaa.textContent = "네이버";         //링크 누를 이름 설정
+        aaa.setAttribute('style','color:red');      //링크 스타일(색깔)
+        div.appendChild(aaa);       //화면에 나오게 자식으로 추가
+
+        aaa.appendChild(imgg);      //링크를 이미지 눌러서 드가고 싶을때
+        
+        //속성 값 확인하기
+        let confirms = aaa.getAttribute('href');
+        console.log(confirms);      //링크 걸어놓은거 확인하기 (http주소가 나온다.)
+        
+        //<span>태그 만들어 넣기
+        let spantag = document.createElement('span');       //span태그 만들기
+        spantag.setAttribute('style','color:blue');         //스타일 설정
+        spantag.textContent = "span태그 추가하기";          //태그에 넣을 텍스트 적기
+        div.appendChild(spantag);                          //화면에 나오게 자식으로 추가
+
+
+    </script>
+</body>
+</html>
